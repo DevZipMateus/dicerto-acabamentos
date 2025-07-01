@@ -1,0 +1,22 @@
+
+User-agent: *
+Allow: /
+
+# Arquivos importantes para SEO
+Sitemap: https://dicerto.com.br/sitemap.xml
+
+# Bloquear diretórios desnecessários
+Disallow: /admin/
+Disallow: /login/
+Disallow: /_next/
+Disallow: /api/
+Disallow: *.js$
+Disallow: *.css$
+
+# Permitir indexação de imagens
+Allow: /images/
+Allow: /lovable-uploads/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.webp$

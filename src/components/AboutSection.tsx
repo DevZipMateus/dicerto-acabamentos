@@ -1,106 +1,92 @@
 
-import { useEffect, useRef } from 'react';
-import { CheckCircle, Award, Users, Clock } from 'lucide-react';
-
-const advantages = [
-  "Mais de 15 anos de experiência",
-  "Equipe técnica qualificada", 
-  "Materiais de primeira qualidade",
-  "Cumprimento de prazos",
-  "Projetos personalizados",
-  "Suporte pós-obra"
-];
-
-const stats = [
-  { icon: Award, number: "200+", label: "Projetos Concluídos" },
-  { icon: Users, number: "50+", label: "Profissionais" },
-  { icon: Clock, number: "15+", label: "Anos de Experiência" }
-];
+import { Users, Award, Clock, Shield, MapPin, Phone } from 'lucide-react';
 
 const AboutSection = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      const [entry] = entries;
-      if (entry.isIntersecting) {
-        const elements = entry.target.querySelectorAll('.animate-element');
-        elements.forEach((el, i) => {
-          setTimeout(() => {
-            el.classList.add('animate-fadeIn');
-          }, i * 200);
-        });
-      }
-    }, {
-      threshold: 0.1
-    });
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
   return (
-    <section className="section-padding construction-gradient" id="about">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8" ref={sectionRef}>
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div className="order-2 lg:order-1">
-            <div className="opacity-0 animate-element">
-              <span className="inline-block py-2 px-4 rounded-full text-sm font-medium bg-yellow-500 text-construction-900 mb-4">
-                Sobre Nós
-              </span>
-              <h2 className="heading-lg mb-4">
-                Construindo o futuro com <span className="text-gradient">qualidade e confiança</span>
-              </h2>
-              <p className="text-construction-600 mb-6 text-base sm:text-lg leading-relaxed">
-                A Construtora ForteBase é uma empresa especializada em construção civil com mais de 15 anos
-                de experiência no mercado. Realizamos projetos residenciais, comerciais e industriais
-                com excelência e comprometimento.
-              </p>
-            </div>
+    <section className="py-20 bg-gray-50" id="sobre">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <span className="inline-block px-4 py-2 bg-yellow-500 text-gray-900 rounded-full text-sm font-semibold mb-6">
+            Sobre a Dicerto
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Sua <span className="text-yellow-600">Especialista</span> em Pisos
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Com mais de 10 anos como profissional de instalação e 5 anos como revenda de produtos, 
+            somos referência em pisos laminados e vinílicos em Treze Tílias.
+          </p>
+        </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
-              {advantages.map((advantage, index) => (
-                <div key={index} className="flex items-start opacity-0 animate-element">
-                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                  <p className="ml-2 sm:ml-3 text-sm sm:text-base text-construction-700">{advantage}</p>
-                </div>
-              ))}
-            </div>
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
+          <div>
+            <h3 className="text-3xl font-bold text-gray-900 mb-6">
+              Nossa História e Compromisso
+            </h3>
+            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              A <strong>Dicerto Acabamentos e Instalações</strong> nasceu da paixão por transformar 
+              ambientes através de pisos de alta qualidade. Começamos nossa jornada há mais de uma década, 
+              sempre priorizando a excelência no atendimento e a satisfação dos nossos clientes.
+            </p>
+            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              Nosso diferencial está na combinação única de experiência técnica, produtos de qualidade 
+              e preços justos. Cada projeto é executado com precisão e cuidado, garantindo resultados 
+              que superam as expectativas.
+            </p>
 
-            <div className="grid grid-cols-3 gap-3 sm:gap-6 opacity-0 animate-element">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-                    <stat.icon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
-                  </div>
-                  <div className="text-lg sm:text-2xl font-bold text-construction-800">{stat.number}</div>
-                  <div className="text-xs sm:text-sm text-construction-600">{stat.label}</div>
+            {/* Contact info */}
+            <div className="bg-white rounded-xl p-6 shadow-lg">
+              <h4 className="text-xl font-bold text-gray-900 mb-4">Entre em Contato</h4>
+              <div className="space-y-3">
+                <div className="flex items-center">
+                  <MapPin className="w-5 h-5 text-yellow-500 mr-3 flex-shrink-0" />
+                  <span className="text-gray-600">Rua Videira, 65 - Centro, Treze Tílias</span>
                 </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="opacity-0 animate-element order-1 lg:order-2">
-            <div className="relative">
-              <div className="absolute -left-2 -top-2 sm:-left-4 sm:-top-4 w-16 h-16 sm:w-24 sm:h-24 bg-yellow-200 rounded-lg opacity-50"></div>
-              <div className="absolute -right-2 -bottom-2 sm:-right-4 sm:-bottom-4 w-20 h-20 sm:w-32 sm:h-32 bg-blue-100 rounded-lg opacity-30"></div>
-              <div className="relative overflow-hidden rounded-xl shadow-lg">
-                <img 
-                  src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                  alt="Equipe de construção" 
-                  className="w-full h-auto object-cover" 
-                  loading="lazy" 
-                />
+                <div className="flex items-center">
+                  <Phone className="w-5 h-5 text-yellow-500 mr-3 flex-shrink-0" />
+                  <span className="text-gray-600">(49) 99916-3785</span>
+                </div>
               </div>
             </div>
           </div>
+
+          <div className="grid grid-cols-2 gap-6">
+            <div className="bg-white rounded-xl p-6 shadow-lg text-center hover:shadow-xl transition-shadow">
+              <Award className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
+              <h4 className="text-2xl font-bold text-gray-900 mb-2">10+</h4>
+              <p className="text-gray-600">Anos de Experiência</p>
+            </div>
+            
+            <div className="bg-white rounded-xl p-6 shadow-lg text-center hover:shadow-xl transition-shadow">
+              <Users className="w-12 h-12 text-green-500 mx-auto mb-4" />
+              <h4 className="text-2xl font-bold text-gray-900 mb-2">500+</h4>
+              <p className="text-gray-600">Projetos Realizados</p>
+            </div>
+            
+            <div className="bg-white rounded-xl p-6 shadow-lg text-center hover:shadow-xl transition-shadow">
+              <Clock className="w-12 h-12 text-blue-500 mx-auto mb-4" />
+              <h4 className="text-2xl font-bold text-gray-900 mb-2">24h</h4>
+              <p className="text-gray-600">Resposta Rápida</p>
+            </div>
+            
+            <div className="bg-white rounded-xl p-6 shadow-lg text-center hover:shadow-xl transition-shadow">
+              <Shield className="w-12 h-12 text-purple-500 mx-auto mb-4" />
+              <h4 className="text-2xl font-bold text-gray-900 mb-2">100%</h4>
+              <p className="text-gray-600">Garantia</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Mission Statement */}
+        <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-2xl p-8 md:p-12 text-center">
+          <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Nossa Missão
+          </h3>
+          <p className="text-xl text-gray-800 max-w-4xl mx-auto leading-relaxed">
+            Proporcionar a nossos clientes pisos de alta qualidade com instalação profissional, 
+            preços justos e atendimento personalizado, transformando cada ambiente em um espaço 
+            único e acolhedor.
+          </p>
         </div>
       </div>
     </section>

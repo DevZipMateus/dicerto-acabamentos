@@ -1,344 +1,251 @@
 
-import { Phone, Mail, MapPin } from 'lucide-react';
-import { useScreenSize, useUltraWide } from '@/hooks/use-mobile';
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { MapPin, Phone, Mail, MessageCircle, Clock, Star } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 const ContactForm = () => {
-  const { isMobile, isTablet } = useScreenSize();
-  const { needsSpecialLayout } = useUltraWide();
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    service: '',
+    message: ''
+  });
+  const { toast } = useToast();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Create WhatsApp message
+    const message = `*Novo Contato - Dicerto Acabamentos*
+    
+*Nome:* ${formData.name}
+*Telefone:* ${formData.phone}
+*Email:* ${formData.email}
+*Serviço:* ${formData.service}
+*Mensagem:* ${formData.message}`;
+    
+    const whatsappUrl = `https://wa.me/5549999163785?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+    
+    toast({
+      title: "Redirecionando para WhatsApp",
+      description: "Você está sendo redirecionado para o WhatsApp para finalizar o contato.",
+    });
+    
+    // Reset form
+    setFormData({
+      name: '',
+      phone: '',
+      email: '',
+      service: '',
+      message: ''
+    });
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
   return (
-    <section className="section-padding bg-white" id="contact">
-      <div className="container mx-auto responsive-padding">
-        <div className={`text-center mx-auto ultra-wide-spacing ${
-          needsSpecialLayout ? 'max-w-5xl mb-16' : 'max-w-3xl mb-12'
-        }`}>
-          <span className={`inline-block py-1.5 px-3 sm:py-2 sm:px-4 rounded-full font-medium bg-yellow-500 text-construction-900 mb-3 sm:mb-4 ${
-            needsSpecialLayout ? 'text-lg py-3 px-6' : 'text-xs sm:text-sm'
-          }`}>
-            Contato
+    <section className="py-20 bg-white" id="contato">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <span className="inline-block px-4 py-2 bg-yellow-500 text-gray-900 rounded-full text-sm font-semibold mb-6">
+            Entre em Contato
           </span>
-          <h2 className={`font-bold text-construction-800 tracking-tight ultra-wide-spacing ${
-            isMobile 
-              ? 'text-xl mb-3' 
-              : isTablet 
-                ? 'text-2xl mb-4'
-                : needsSpecialLayout
-                  ? 'text-5xl xl:text-6xl mb-8'
-                  : 'text-3xl lg:text-4xl mb-6'
-          }`}>
-            Vamos construir seu projeto juntos
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Solicite seu <span className="text-yellow-600">Orçamento Gratuito</span>
           </h2>
-          <p className={`text-construction-600 max-w-3xl px-2 sm:px-0 ${
-            isMobile 
-              ? 'text-sm' 
-              : isTablet 
-                ? 'text-base'
-                : needsSpecialLayout
-                  ? 'text-xl xl:text-2xl'
-                  : 'text-base lg:text-lg'
-          }`}>
-            Entre em contato conosco para solicitar um orçamento gratuito ou tirar suas dúvidas.
-            Nossa equipe está pronta para atender você.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Pronto para transformar seu ambiente? Entre em contato conosco e receba um orçamento 
+            personalizado sem compromisso.
           </p>
         </div>
 
-        <div className={needsSpecialLayout ? 'max-w-6xl mx-auto' : 'max-w-4xl mx-auto'}>
-          <div className={`glass-card rounded-lg sm:rounded-xl animate-slideInRight ${
-            needsSpecialLayout ? 'p-12' : 'p-3 sm:p-4 md:p-6 lg:p-8'
-          }`}>
-            <h3 className={`font-bold text-construction-900 text-center ultra-wide-spacing ${
-              isMobile 
-                ? 'text-lg mb-4' 
-                : needsSpecialLayout
-                  ? 'text-3xl mb-8'
-                  : 'text-lg sm:text-xl md:text-2xl mb-6'
-            }`}>
-              Nossos Canais de Atendimento
+        <div className="grid lg:grid-cols-2 gap-16">
+          {/* Contact Information */}
+          <div>
+            <h3 className="text-3xl font-bold text-gray-900 mb-8">
+              Fale Conosco
             </h3>
             
-            <div className={`grid responsive-gap ultra-wide-spacing ${
-              isMobile 
-                ? 'grid-cols-1' 
-                : isTablet 
-                  ? 'grid-cols-2' 
-                  : needsSpecialLayout
-                    ? 'grid-cols-3 gap-12'
-                    : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
-            }`}>
-              <div className="text-center">
-                <div className={`rounded-full bg-blue-100 flex items-center justify-center mx-auto ultra-wide-spacing ${
-                  isMobile 
-                    ? 'w-10 h-10 mb-2' 
-                    : needsSpecialLayout
-                      ? 'w-20 h-20 mb-6'
-                      : 'w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mb-3 md:mb-4'
-                }`}>
-                  <Phone className={`text-blue-600 ${
-                    isMobile 
-                      ? 'w-4 h-4' 
-                      : needsSpecialLayout
-                        ? 'w-10 h-10'
-                        : 'w-5 h-5 sm:w-6 sm:h-6'
-                  }`} />
+            <div className="space-y-6 mb-8">
+              <div className="flex items-start space-x-4">
+                <div className="bg-yellow-500 p-3 rounded-lg">
+                  <MapPin className="w-6 h-6 text-gray-900" />
                 </div>
-                <h4 className={`font-semibold text-construction-900 ultra-wide-spacing ${
-                  isMobile 
-                    ? 'text-base mb-1' 
-                    : needsSpecialLayout
-                      ? 'text-2xl mb-4'
-                      : 'text-base sm:text-lg md:text-xl mb-2'
-                }`}>
-                  Telefone
-                </h4>
-                <p className={`text-construction-600 ${
-                  isMobile 
-                    ? 'text-sm' 
-                    : needsSpecialLayout
-                      ? 'text-lg'
-                      : 'text-sm sm:text-base'
-                }`}>
-                  (11) 99999-9999
-                </p>
-                <p className={`text-construction-600 ${
-                  isMobile 
-                    ? 'text-sm' 
-                    : needsSpecialLayout
-                      ? 'text-lg'
-                      : 'text-sm sm:text-base'
-                }`}>
-                  (11) 3456-7890
-                </p>
+                <div>
+                  <h4 className="font-bold text-gray-900 mb-1">Endereço</h4>
+                  <p className="text-gray-600">Rua Videira, 65<br />Centro, Treze Tílias - SC</p>
+                </div>
               </div>
               
-              <div className="text-center">
-                <div className={`rounded-full bg-blue-100 flex items-center justify-center mx-auto ultra-wide-spacing ${
-                  isMobile 
-                    ? 'w-10 h-10 mb-2' 
-                    : needsSpecialLayout
-                      ? 'w-20 h-20 mb-6'
-                      : 'w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mb-3 md:mb-4'
-                }`}>
-                  <Mail className={`text-blue-600 ${
-                    isMobile 
-                      ? 'w-4 h-4' 
-                      : needsSpecialLayout
-                        ? 'w-10 h-10'
-                        : 'w-5 h-5 sm:w-6 sm:h-6'
-                  }`} />
+              <div className="flex items-start space-x-4">
+                <div className="bg-green-500 p-3 rounded-lg">
+                  <Phone className="w-6 h-6 text-white" />
                 </div>
-                <h4 className={`font-semibold text-construction-900 ultra-wide-spacing ${
-                  isMobile 
-                    ? 'text-base mb-1' 
-                    : needsSpecialLayout
-                      ? 'text-2xl mb-4'
-                      : 'text-base sm:text-lg md:text-xl mb-2'
-                }`}>
-                  E-mail
-                </h4>
-                <p className={`text-construction-600 break-all ${
-                  isMobile 
-                    ? 'text-xs' 
-                    : needsSpecialLayout
-                      ? 'text-base'
-                      : 'text-xs sm:text-sm md:text-base'
-                }`}>
-                  contato@construtorafortebase.com.br
-                </p>
-                <p className={`text-construction-600 break-all ${
-                  isMobile 
-                    ? 'text-xs' 
-                    : needsSpecialLayout
-                      ? 'text-base'
-                      : 'text-xs sm:text-sm md:text-base'
-                }`}>
-                  orcamento@construtorafortebase.com.br
-                </p>
+                <div>
+                  <h4 className="font-bold text-gray-900 mb-1">Telefone</h4>
+                  <a href="tel:+5549999163785" className="text-gray-600 hover:text-green-600 transition-colors">
+                    (49) 99916-3785
+                  </a>
+                </div>
               </div>
-
-              <div className={`text-center ${
-                isMobile ? '' : isTablet ? 'col-span-2' : 'sm:col-span-2 lg:col-span-1'
-              }`}>
-                <div className={`rounded-full bg-blue-100 flex items-center justify-center mx-auto ultra-wide-spacing ${
-                  isMobile 
-                    ? 'w-10 h-10 mb-2' 
-                    : needsSpecialLayout
-                      ? 'w-20 h-20 mb-6'
-                      : 'w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mb-3 md:mb-4'
-                }`}>
-                  <MapPin className={`text-blue-600 ${
-                    isMobile 
-                      ? 'w-4 h-4' 
-                      : needsSpecialLayout
-                        ? 'w-10 h-10'
-                        : 'w-5 h-5 sm:w-6 sm:h-6'
-                  }`} />
+              
+              <div className="flex items-start space-x-4">
+                <div className="bg-blue-500 p-3 rounded-lg">
+                  <Mail className="w-6 h-6 text-white" />
                 </div>
-                <h4 className={`font-semibold text-construction-900 ultra-wide-spacing ${
-                  isMobile 
-                    ? 'text-base mb-1' 
-                    : needsSpecialLayout
-                      ? 'text-2xl mb-4'
-                      : 'text-base sm:text-lg md:text-xl mb-2'
-                }`}>
-                  Endereço
-                </h4>
-                <p className={`text-construction-600 ${
-                  isMobile 
-                    ? 'text-sm' 
-                    : needsSpecialLayout
-                      ? 'text-lg'
-                      : 'text-sm sm:text-base'
-                }`}>
-                  Av. Construção, 1000
-                </p>
-                <p className={`text-construction-600 ${
-                  isMobile 
-                    ? 'text-sm' 
-                    : needsSpecialLayout
-                      ? 'text-lg'
-                      : 'text-sm sm:text-base'
-                }`}>
-                  São Paulo - SP
-                </p>
+                <div>
+                  <h4 className="font-bold text-gray-900 mb-1">Email</h4>
+                  <a href="mailto:dicerto@outlook.com" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    dicerto@outlook.com
+                  </a>
+                </div>
+              </div>
+              
+              <div className="flex items-start space-x-4">
+                <div className="bg-purple-500 p-3 rounded-lg">
+                  <Clock className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-900 mb-1">Horário de Atendimento</h4>
+                  <p className="text-gray-600">Segunda a Sexta: 8h às 18h<br />Sábado: 8h às 12h</p>
+                </div>
               </div>
             </div>
-            
-            <div className={`text-center border-t border-construction-200 ${
-              needsSpecialLayout ? 'pt-12 mt-12' : 'pt-4 sm:pt-6 lg:pt-8 mt-4 sm:mt-6 lg:mt-8'
-            }`}>
-              <div className={`rounded-full bg-green-500 flex items-center justify-center mx-auto ultra-wide-spacing ${
-                isMobile 
-                  ? 'w-10 h-10 mb-2' 
-                  : needsSpecialLayout
-                    ? 'w-20 h-20 mb-6'
-                    : 'w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mb-3 md:mb-4'
-              }`}>
-                <img 
-                  src="/lovable-uploads/db774a34-6e4e-4b59-8c0f-b48860054798.png" 
-                  alt="WhatsApp" 
-                  className={
-                    isMobile 
-                      ? 'w-5 h-5' 
-                      : needsSpecialLayout
-                        ? 'w-10 h-10'
-                        : 'w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8'
-                  } 
-                />
-              </div>
-              <h4 className={`font-semibold text-construction-900 ultra-wide-spacing ${
-                isMobile 
-                  ? 'text-base mb-1' 
-                  : needsSpecialLayout
-                    ? 'text-2xl mb-4'
-                    : 'text-base sm:text-lg md:text-xl mb-2'
-              }`}>
-                WhatsApp
-              </h4>
-              <p className={`text-construction-600 ultra-wide-spacing ${
-                isMobile 
-                  ? 'text-sm mb-1' 
-                  : needsSpecialLayout
-                    ? 'text-lg mb-4'
-                    : 'text-sm sm:text-base mb-2'
-              }`}>
-                (11) 99999-9999
-              </p>
-              <p className={`text-construction-600 ultra-wide-spacing ${
-                isMobile 
-                  ? 'text-xs mb-3' 
-                  : needsSpecialLayout
-                    ? 'text-base mb-6'
-                    : 'text-xs sm:text-sm md:text-base mb-4'
-              }`}>
-                Atendimento rápido para orçamentos e dúvidas
+
+            {/* Quick Contact */}
+            <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-2xl p-6 text-white">
+              <h4 className="text-xl font-bold mb-3">Atendimento Rápido via WhatsApp</h4>
+              <p className="mb-4 opacity-90">
+                Precisa de uma resposta rápida? Fale conosco pelo WhatsApp e receba atendimento imediato!
               </p>
               <a 
-                href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento" 
+                href="https://wa.me/5549999163785?text=Olá,%20gostaria%20de%20mais%20informações" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className={`button-accent inline-flex items-center justify-center ${
-                  isMobile 
-                    ? 'text-xs px-3 py-2' 
-                    : needsSpecialLayout
-                      ? 'text-xl px-12 py-6'
-                      : 'text-xs sm:text-sm md:text-base px-3 sm:px-4 md:px-6 py-2 sm:py-3'
-                }`}
+                className="inline-flex items-center justify-center px-6 py-3 bg-white text-green-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
               >
-                <img 
-                  src="/lovable-uploads/db774a34-6e4e-4b59-8c0f-b48860054798.png" 
-                  alt="WhatsApp" 
-                  className={`mr-1 sm:mr-2 ${
-                    isMobile 
-                      ? 'w-3 h-3' 
-                      : needsSpecialLayout
-                        ? 'w-6 h-6'
-                        : 'w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5'
-                  }`} 
-                />
-                {isMobile ? 'Orçamento pelo WhatsApp' : 'Solicitar Orçamento pelo WhatsApp'}
+                <MessageCircle className="w-5 h-5 mr-2" />
+                Chamar no WhatsApp
               </a>
             </div>
+          </div>
+
+          {/* Contact Form */}
+          <div className="bg-gray-50 rounded-2xl p-8">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              Solicitar Orçamento
+            </h3>
             
-            <div className={`bg-construction-50 rounded-lg border border-construction-200 ${
-              needsSpecialLayout ? 'mt-12 p-8' : 'mt-4 sm:mt-6 lg:mt-8 p-3 sm:p-4 md:p-6'
-            }`}>
-              <h4 className={`font-semibold text-construction-900 text-center ultra-wide-spacing ${
-                isMobile 
-                  ? 'text-base mb-2' 
-                  : needsSpecialLayout
-                    ? 'text-2xl mb-6'
-                    : 'text-base sm:text-lg md:text-xl mb-3'
-              }`}>
-                Horário de Atendimento
-              </h4>
-              <div className={`grid text-center responsive-gap ${
-                isMobile 
-                  ? 'grid-cols-1' 
-                  : needsSpecialLayout
-                    ? 'grid-cols-2 gap-8'
-                    : 'grid-cols-1 sm:grid-cols-2'
-              }`}>
-                <div>
-                  <p className={`font-medium text-construction-800 ${
-                    isMobile 
-                      ? 'text-sm' 
-                      : needsSpecialLayout
-                        ? 'text-xl'
-                        : 'text-sm sm:text-base'
-                  }`}>
-                    Segunda a Sexta
-                  </p>
-                  <p className={`text-construction-600 ${
-                    isMobile 
-                      ? 'text-sm' 
-                      : needsSpecialLayout
-                        ? 'text-lg'
-                        : 'text-sm sm:text-base'
-                  }`}>
-                    08:00 às 18:00
-                  </p>
-                </div>
-                <div>
-                  <p className={`font-medium text-construction-800 ${
-                    isMobile 
-                      ? 'text-sm' 
-                      : needsSpecialLayout
-                        ? 'text-xl'
-                        : 'text-sm sm:text-base'
-                  }`}>
-                    Sábados
-                  </p>
-                  <p className={`text-construction-600 ${
-                    isMobile 
-                      ? 'text-sm' 
-                      : needsSpecialLayout
-                        ? 'text-lg'
-                        : 'text-sm sm:text-base'
-                  }`}>
-                    08:00 às 12:00
-                  </p>
-                </div>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  Nome Completo *
+                </label>
+                <Input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full"
+                  placeholder="Seu nome completo"
+                />
               </div>
+              
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  Telefone/WhatsApp *
+                </label>
+                <Input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                  className="w-full"
+                  placeholder="(49) 99999-9999"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  Email
+                </label>
+                <Input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full"
+                  placeholder="seu@email.com"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
+                  Serviço de Interesse *
+                </label>
+                <select
+                  id="service"
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                >
+                  <option value="">Selecione um serviço</option>
+                  <option value="Piso Laminado">Piso Laminado</option>
+                  <option value="Piso Vinílico">Piso Vinílico</option>
+                  <option value="Drywall">Drywall (Gesso)</option>
+                  <option value="Orçamento Geral">Orçamento Geral</option>
+                </select>
+              </div>
+              
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  Mensagem
+                </label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={4}
+                  className="w-full"
+                  placeholder="Descreva seu projeto ou dúvidas..."
+                />
+              </div>
+              
+              <Button 
+                type="submit" 
+                className="w-full bg-yellow-500 text-gray-900 hover:bg-yellow-600 font-semibold py-3"
+              >
+                <MessageCircle className="w-5 h-5 mr-2" />
+                Enviar via WhatsApp
+              </Button>
+            </form>
+            
+            <div className="mt-6 p-4 bg-yellow-100 rounded-lg">
+              <div className="flex items-center mb-2">
+                <Star className="w-5 h-5 text-yellow-600 mr-2" />
+                <span className="font-semibold text-gray-900">Garantia de Qualidade</span>
+              </div>
+              <p className="text-sm text-gray-600">
+                Orçamento gratuito • Visita sem compromisso • Preços justos • Trabalho garantido
+              </p>
             </div>
           </div>
         </div>

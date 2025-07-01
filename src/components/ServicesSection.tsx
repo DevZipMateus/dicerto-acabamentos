@@ -1,106 +1,101 @@
-import { useEffect, useRef } from 'react';
-import { Home, Wrench, Building2, Clipboard, Hammer, Truck } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
 
-const services = [{
-  title: "Construção Residencial",
-  description: "Construção de casas e apartamentos com qualidade superior, seguindo todas as normas técnicas e de segurança.",
-  icon: Home,
-  delay: 0
-}, {
-  title: "Reformas e Renovações",
-  description: "Reformas completas ou parciais, modernizando seus espaços com eficiência e cuidado.",
-  icon: Wrench,
-  delay: 100
-}, {
-  title: "Obras Comerciais",
-  description: "Construção de edifícios comerciais, escritórios e espaços industriais com tecnologia avançada.",
-  icon: Building2,
-  delay: 200
-}, {
-  title: "Gerenciamento de Obras",
-  description: "Acompanhamento completo do projeto, desde o planejamento até a entrega final da obra.",
-  icon: Clipboard,
-  delay: 300
-}, {
-  title: "Acabamentos",
-  description: "Serviços especializados em acabamentos internos e externos com materiais de primeira qualidade.",
-  icon: Hammer,
-  delay: 400
-}, {
-  title: "Infraestrutura",
-  description: "Obras de infraestrutura urbana, saneamento e obras públicas com experiência comprovada.",
-  icon: Truck,
-  delay: 500
-}];
+import { Hammer, Home, Layers, CheckCircle, MessageCircle } from 'lucide-react';
+
+const services = [
+  {
+    title: "Pisos Laminados",
+    description: "Instalação profissional de pisos laminados de alta qualidade. Diversos padrões e cores disponíveis com acabamento perfeito.",
+    icon: Layers,
+    features: ["Instalação profissional", "Diversos padrões", "Garantia de qualidade", "Preço justo"],
+    color: "bg-blue-500"
+  },
+  {
+    title: "Pisos Vinílicos",
+    description: "Pisos vinílicos modernos e resistentes, ideais para ambientes residenciais e comerciais. Fácil manutenção e durabilidade.",
+    icon: Home,
+    features: ["Resistente à água", "Fácil manutenção", "Conforto térmico", "Várias opções"],
+    color: "bg-green-500"
+  },
+  {
+    title: "Drywall (Gesso)",
+    description: "Instalação completa de drywall com acabamento profissional. Divisórias, forros e sancas com preços acessíveis.",
+    icon: Hammer,
+    features: ["Divisórias", "Forros e sancas", "Isolamento acústico", "Acabamento perfeito"],
+    color: "bg-purple-500"
+  }
+];
 
 const ServicesSection = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      const [entry] = entries;
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate-fadeIn');
-        const cards = document.querySelectorAll('.service-card');
-        cards.forEach((card, index) => {
-          setTimeout(() => {
-            card.classList.add('animate-fadeIn');
-            card.classList.remove('opacity-0');
-          }, index * 100);
-        });
-      }
-    }, {
-      threshold: 0.1
-    });
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-  return <section className="py-16 construction-gradient w-full" id="services">
-      <div className="container mx-auto" ref={sectionRef}>
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="inline-block py-2 px-4 rounded-full text-sm font-medium bg-yellow-500 text-construction-900 mb-4">
+  return (
+    <section className="py-20 bg-white" id="servicos">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <span className="inline-block px-4 py-2 bg-yellow-500 text-gray-900 rounded-full text-sm font-semibold mb-6">
             Nossos Serviços
           </span>
-          <h2 className="heading-lg mb-4">
-            Soluções completas em <span className="text-gradient">construção civil</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Soluções Completas em <span className="text-yellow-600">Acabamentos</span>
           </h2>
-          <p className="subtitle">
-            Oferecemos serviços especializados em construção e reforma para projetos residenciais,
-            comerciais e industriais com qualidade garantida.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Oferecemos serviços especializados em pisos e drywall com preços que cabem no seu orçamento. 
+            Qualidade garantida e experiência comprovada.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-          {services.map((service, index) => <div key={index} className={cn("service-card p-6 rounded-xl transition-all duration-300 opacity-0", "bg-white border border-construction-200 hover:border-blue-300", "hover:shadow-lg hover:-translate-y-1 flex flex-col items-start")}>
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center mb-5">
-                <service.icon className="w-7 h-7 text-blue-700" />
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
+          {services.map((service, index) => (
+            <div key={index} className="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
+              <div className={`${service.color} w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                <service.icon className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-construction-900 mb-3">{service.title}</h3>
-              <p className="text-construction-600 mb-4 flex-grow">{service.description}</p>
-              <Link to="/services" className="mt-auto">
-                <Button variant="link" className="p-0 h-auto text-blue-700 hover:text-blue-800">
-                  Saiba mais
-                </Button>
-              </Link>
-            </div>)}
+              
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+              
+              <ul className="space-y-2 mb-6">
+                {service.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-center text-gray-600">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-        
-        <div className="text-center mt-8">
-          <Link to="/services">
-            <Button variant="outline" size="lg" className="rounded-full border-blue-600 text-white bg-blue-600 hover:bg-blue-700">
-              Ver todos os serviços
-            </Button>
-          </Link>
+
+        {/* Special offer section */}
+        <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-8 md:p-12 text-center text-white">
+          <h3 className="text-3xl md:text-4xl font-bold mb-6">
+            Orçamento e Visita <span className="text-yellow-500">100% Gratuitos</span>
+          </h3>
+          <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
+            Pisos laminados e vinílicos instalados na obra. Gesso drywall instalado na obra com preços 
+            que cabem no seu orçamento. Faça uma consulta ou agenda uma visita sem custo.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a 
+              href="https://wa.me/5549999163785?text=Olá,%20gostaria%20de%20agendar%20uma%20visita%20gratuita" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-colors"
+            >
+              <MessageCircle className="w-5 h-5 mr-2" />
+              Agendar Visita Grátis
+            </a>
+            
+            <div className="text-center">
+              <p className="text-sm opacity-75 mb-1">Ligue agora:</p>
+              <a href="tel:+5549999163785" className="text-2xl font-bold text-yellow-500 hover:text-yellow-400 transition-colors">
+                (49) 99916-3785
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default ServicesSection;
