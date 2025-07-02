@@ -337,7 +337,7 @@ const NossosProjetos = () => {
                     </AspectRatio>
                     
                     <div className="p-4 sm:p-6">
-                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 line-clamp-2">{project.title}</h3>
+                      <p className="text-lg sm:text-xl font-bold text-gray-900 mb-2 line-clamp-2">{project.title}</p>
                       <p className="text-sm sm:text-base text-gray-600 line-clamp-3">{project.description}</p>
                     </div>
                   </div>
@@ -403,9 +403,9 @@ const NossosProjetos = () => {
               className="max-w-full max-h-full object-contain rounded-lg"
             />
             <div className="absolute bottom-4 left-4 right-4 text-center">
-              <h3 className="text-white text-xl font-bold bg-black bg-opacity-50 rounded-lg py-2 px-4 inline-block">
+              <p className="text-white text-xl font-bold bg-black bg-opacity-50 rounded-lg py-2 px-4 inline-block">
                 {selectedImage.title}
-              </h3>
+              </p>
             </div>
           </div>
           <div 
