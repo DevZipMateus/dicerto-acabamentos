@@ -1,12 +1,16 @@
+
 import { Button } from '@/components/ui/button';
 import { Phone, MessageCircle, Award, Clock, CheckCircle } from 'lucide-react';
+
 const HeroSection = () => {
   const scrollToContact = () => {
     document.getElementById('contato')?.scrollIntoView({
       behavior: 'smooth'
     });
   };
-  return <section className="relative min-h-screen flex items-center justify-center bg-[#242b38] overflow-hidden">
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center bg-[#242b38] overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-yellow-500 bg-opacity-10 rounded-full"></div>
@@ -72,25 +76,20 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right content - Image placeholder */}
+          {/* Right content - Professional Image */}
           <div className="relative">
-            <div className="aspect-square bg-gradient-to-br from-gray-700 to-gray-800 rounded-3xl shadow-2xl flex items-center justify-center border border-gray-600">
-              <div className="text-center p-8">
-                <div className="w-32 h-32 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-4xl font-bold text-gray-900">DC</span>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-2">Dicerto</h3>
-                <p className="text-gray-300">Acabamentos e Instalações</p>
-              </div>
+            <div className="aspect-square rounded-3xl shadow-2xl overflow-hidden border-4 border-yellow-500">
+              <img 
+                src="/lovable-uploads/bce29091-4bd8-4963-94e5-a3a41084203c.png" 
+                alt="Profissional da Dicerto em seu ambiente de trabalho" 
+                className="w-full h-full object-cover"
+              />
             </div>
-            
-            {/* Floating elements */}
-            
-            
-            
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default HeroSection;

@@ -20,8 +20,12 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl flex items-center justify-center">
-                <span className="text-gray-900 font-bold text-lg">DC</span>
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg overflow-hidden">
+                <img 
+                  src="/lovable-uploads/8e01c698-22d6-43e3-a008-5133f4e19948.png" 
+                  alt="Dicerto Logo" 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <div className="text-xl font-bold text-yellow-500">Dicerto</div>
