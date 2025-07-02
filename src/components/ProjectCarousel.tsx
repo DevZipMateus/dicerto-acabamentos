@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Eye } from 'lucide-react';
 
@@ -252,16 +253,16 @@ const ProjectCarousel = () => {
   };
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-[#242b38]">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="inline-block py-2 px-4 rounded-full text-sm font-medium bg-blue-100 text-blue-700 mb-4">
             Nossos Trabalhos
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Galeria de <span className="text-blue-600">Projetos Realizados</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Galeria de <span className="text-yellow-500">Projetos Realizados</span>
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-300">
             Conheça alguns dos nossos trabalhos mais recentes e se inspire para seu próximo projeto.
           </p>
         </div>
@@ -314,8 +315,8 @@ const ProjectCarousel = () => {
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-200 ${
                   index === currentIndex 
-                    ? 'bg-blue-600 w-8' 
-                    : 'bg-gray-300 hover:bg-gray-400'
+                    ? 'bg-yellow-500 w-8' 
+                    : 'bg-gray-400 hover:bg-gray-300'
                 }`}
               />
             ))}
@@ -326,7 +327,7 @@ const ProjectCarousel = () => {
         <div className="text-center mt-12">
           <a
             href="/nossos-projetos"
-            className="inline-flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors shadow-lg"
+            className="inline-flex items-center px-8 py-4 bg-yellow-500 text-gray-900 font-semibold rounded-lg hover:bg-yellow-400 transition-colors shadow-lg"
           >
             <Eye className="w-5 h-5 mr-2" />
             Ver Todos os Projetos

@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import Header from '@/components/Header';
@@ -304,7 +305,7 @@ const NossosProjetos = () => {
           </section>
 
           {/* Projects Gallery */}
-          <section className="py-16 bg-white">
+          <section className="py-16 bg-[#242b38]">
             <div className="container mx-auto px-4">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {projectImages.map((project) => (
