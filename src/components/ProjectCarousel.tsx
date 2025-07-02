@@ -92,6 +92,66 @@ const projectImages = [
     src: '/lovable-uploads/91667576-3f0f-4ca0-bece-a84607233e6f.png',
     title: 'Piso Laminado - Corredor Moderno',
     description: 'Piso laminado com acabamento impecável'
+  },
+  {
+    id: 16,
+    src: '/lovable-uploads/627ccb34-e94d-4647-acea-caaa9259f211.png',
+    title: 'Piso Laminado - Cozinha Planejada',
+    description: 'Instalação de piso laminado em cozinha com móveis planejados'
+  },
+  {
+    id: 17,
+    src: '/lovable-uploads/4ee9b7f2-bd1f-44a4-a324-7f1627ad650a.png',
+    title: 'Piso Laminado - Escritório Executivo',
+    description: 'Piso laminado em escritório com acabamento premium'
+  },
+  {
+    id: 18,
+    src: '/lovable-uploads/48717f54-b4a3-4903-b778-858d7bdb28a5.png',
+    title: 'Piso Laminado - Sala com Escada',
+    description: 'Piso laminado em ambiente residencial com escada'
+  },
+  {
+    id: 19,
+    src: '/lovable-uploads/477b1f4d-d095-4023-9b79-ab47d382cdf8.png',
+    title: 'Piso Laminado - Corredor Residencial',
+    description: 'Instalação de piso laminado em corredor de casa'
+  },
+  {
+    id: 20,
+    src: '/lovable-uploads/7c9e1630-0c9c-437b-a4db-832a2124700e.png',
+    title: 'Acabamento em Banheiro',
+    description: 'Trabalho de acabamento em banheiro com revestimentos'
+  },
+  {
+    id: 21,
+    src: '/lovable-uploads/37358d3a-e10c-4929-b4c1-ca045eb6bbe1.png',
+    title: 'Gesso - Teto Comercial',
+    description: 'Acabamento em gesso com iluminação LED comercial'
+  },
+  {
+    id: 22,
+    src: '/lovable-uploads/c39e49c7-8723-4b3e-8fd7-9cae658dd780.png',
+    title: 'Drywall - Ambiente Comercial',
+    description: 'Trabalho em drywall para ambiente comercial'
+  },
+  {
+    id: 23,
+    src: '/lovable-uploads/b0f3098a-9a64-46a9-a3c6-c79ba8d880ec.png',
+    title: 'Piso Laminado - Escada e Hall',
+    description: 'Piso laminado em escada e hall de entrada'
+  },
+  {
+    id: 24,
+    src: '/lovable-uploads/d0d53140-fa7a-4cd1-b3eb-4bd43694e970.png',
+    title: 'Piso Laminado - Corredor Claro',
+    description: 'Piso laminado claro em corredor residencial'
+  },
+  {
+    id: 25,
+    src: '/lovable-uploads/2e75a74d-489b-4f0b-90cf-a72fbedb4898.png',
+    title: 'Piso Laminado - Quarto com Armário',
+    description: 'Piso laminado em quarto com armário embutido'
   }
 ];
 
