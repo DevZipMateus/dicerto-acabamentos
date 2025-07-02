@@ -1,14 +1,12 @@
-
 import { Button } from '@/components/ui/button';
 import { Phone, MessageCircle, Award, Clock, CheckCircle } from 'lucide-react';
-
 const HeroSection = () => {
   const scrollToContact = () => {
-    document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('contato')?.scrollIntoView({
+      behavior: 'smooth'
+    });
   };
-
-  return (
-    <section className="relative min-h-screen flex items-center justify-center bg-[#242b38] overflow-hidden">
+  return <section className="relative min-h-screen flex items-center justify-center bg-[#242b38] overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-yellow-500 bg-opacity-10 rounded-full"></div>
@@ -44,21 +42,11 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <a 
-                href="https://wa.me/5549999163785?text=Olá,%20gostaria%20de%20um%20orçamento%20gratuito" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-4 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-colors shadow-lg"
-              >
+              <a href="https://wa.me/5549999163785?text=Olá,%20gostaria%20de%20um%20orçamento%20gratuito" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-4 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-colors shadow-lg">
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Orçamento Grátis via WhatsApp
               </a>
-              <Button 
-                onClick={scrollToContact}
-                variant="outline" 
-                size="lg" 
-                className="border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-gray-900 px-8 py-4 bg-transparent"
-              >
+              <Button onClick={scrollToContact} variant="outline" size="lg" className="border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-gray-900 px-8 py-4 bg-transparent">
                 <Phone className="w-5 h-5 mr-2" />
                 Agendar Visita
               </Button>
@@ -102,15 +90,10 @@ const HeroSection = () => {
               <p className="text-xs text-green-400">100% Gratuito</p>
             </div>
             
-            <div className="absolute -bottom-4 -left-4 bg-yellow-500 rounded-lg shadow-lg p-4">
-              <p className="text-sm font-semibold text-gray-900">Visita Grátis</p>
-              <p className="text-xs text-gray-700">Sem compromisso</p>
-            </div>
+            
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
