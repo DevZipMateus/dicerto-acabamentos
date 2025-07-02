@@ -58,10 +58,10 @@ const Header = () => {
     const baseClasses = 'text-sm font-medium transition-colors duration-300 cursor-pointer';
     
     if (isActive) {
-      return `${baseClasses} text-yellow-600`;
+      return `${baseClasses} text-yellow-400`;
     }
     
-    return `${baseClasses} ${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-yellow-500`;
+    return `${baseClasses} text-white hover:text-yellow-300`;
   };
 
   const handleNavClick = (item: any) => {
@@ -73,9 +73,7 @@ const Header = () => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-lg py-3' : 'bg-transparent py-4'
-    }`}>
+    <header className="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-[#242b38] shadow-lg py-3">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -91,8 +89,8 @@ const Header = () => {
               />
             </div>
             <div>
-              <div className="text-xl font-bold text-yellow-600">Dicerto</div>
-              <div className={`text-sm ${isScrolled ? 'text-gray-600' : 'text-yellow-200'}`}>
+              <div className="text-xl font-bold text-yellow-400">Dicerto</div>
+              <div className="text-sm text-yellow-200">
                 Acabamentos e Instalações
               </div>
             </div>
@@ -120,7 +118,7 @@ const Header = () => {
             <div className="hidden md:flex items-center space-x-4">
               <a 
                 href="tel:+5549999163785"
-                className={`flex items-center space-x-2 ${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-yellow-500 transition-colors`}
+                className="flex items-center space-x-2 text-white hover:text-yellow-300 transition-colors"
               >
                 <Phone className="w-4 h-4" />
                 <span className="text-sm font-medium">(49) 99916-3785</span>
@@ -143,7 +141,7 @@ const Header = () => {
             
             {/* Mobile Menu Button */}
             <button 
-              className={`lg:hidden ${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-yellow-500 transition-colors`}
+              className="lg:hidden text-white hover:text-yellow-300 transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
             >
