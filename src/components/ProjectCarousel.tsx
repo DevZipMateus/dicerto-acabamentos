@@ -152,6 +152,66 @@ const projectImages = [
     src: '/lovable-uploads/2e75a74d-489b-4f0b-90cf-a72fbedb4898.png',
     title: 'Piso Laminado - Quarto com Armário',
     description: 'Piso laminado em quarto com armário embutido'
+  },
+  {
+    id: 26,
+    src: '/lovable-uploads/82c7ea14-7980-42a2-99a9-f1750adc54f6.png',
+    title: 'Piso Laminado com Móveis Planejados',
+    description: 'Instalação de piso laminado com marcenaria personalizada'
+  },
+  {
+    id: 27,
+    src: '/lovable-uploads/cc01e21d-b9bc-4186-a976-8218e2538e4a.png',
+    title: 'Piso Laminado - Quarto Premium',
+    description: 'Piso laminado em quarto com acabamento de alta qualidade'
+  },
+  {
+    id: 28,
+    src: '/lovable-uploads/ba64573a-034d-4598-952a-75633e99381d.png',
+    title: 'Acabamento em Gesso - Rebaixamento',
+    description: 'Trabalho de gesso com rebaixamento de teto'
+  },
+  {
+    id: 29,
+    src: '/lovable-uploads/8e9da79c-c9f6-4c42-873c-dc73738f81da.png',
+    title: 'Piso Laminado - Quarto Compacto',
+    description: 'Piso laminado em quarto com aproveitamento de espaço'
+  },
+  {
+    id: 30,
+    src: '/lovable-uploads/02cc6d88-d384-4675-ab5e-45dcea225d91.png',
+    title: 'Estrutura Drywall - Base',
+    description: 'Estrutura metálica para drywall em construção'
+  },
+  {
+    id: 31,
+    src: '/lovable-uploads/0253ad5a-efc9-4aa4-b3fa-5c95ff49cc0f.png',
+    title: 'Piso Laminado - Corredor com Móveis',
+    description: 'Piso laminado em corredor com móveis planejados'
+  },
+  {
+    id: 32,
+    src: '/lovable-uploads/67ab0774-9c19-4d2c-8939-a43228352637.png',
+    title: 'Acabamento em Banheiro Premium',
+    description: 'Box de vidro e acabamentos de primeira qualidade'
+  },
+  {
+    id: 33,
+    src: '/lovable-uploads/4bc7d467-89eb-4cfc-a75b-dbba0152df60.png',
+    title: 'Acabamento em Gesso - Sala',
+    description: 'Trabalho em gesso com design moderno em sala de estar'
+  },
+  {
+    id: 34,
+    src: '/lovable-uploads/930e44c0-c714-4bcc-88d8-17bddf602fc4.png',
+    title: 'Trabalho em Altura - Revestimento',
+    description: 'Aplicação de revestimento em parede com acabamento especial'
+  },
+  {
+    id: 35,
+    src: '/lovable-uploads/4d9a58de-0530-4cfa-a848-0ba38bcc4809.png',
+    title: 'Piso Laminado - Cozinha Integrada Premium',
+    description: 'Piso laminado em cozinha com móveis planejados de alta qualidade'
   }
 ];
 
