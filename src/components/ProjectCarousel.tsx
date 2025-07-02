@@ -275,9 +275,9 @@ const ProjectCarousel = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end">
                     <div className="p-4 sm:p-6 lg:p-8 text-white w-full">
-                      <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold mb-2 line-clamp-2">
+                      <p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold mb-2 line-clamp-2">
                         {image.title}
-                      </h3>
+                      </p>
                       <p className="text-sm sm:text-base lg:text-lg opacity-90 line-clamp-2 sm:line-clamp-3">
                         {image.description}
                       </p>
