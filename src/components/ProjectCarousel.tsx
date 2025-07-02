@@ -1,6 +1,6 @@
-
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Eye } from 'lucide-react';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const projectImages = [
   {
@@ -235,7 +235,7 @@ const ProjectCarousel = () => {
       setCurrentIndex((prevIndex) => 
         prevIndex === projectImages.length - 1 ? 0 : prevIndex + 1
       );
-    }, 3000);
+    }, 4000); // Slightly slower for better UX
 
     return () => clearInterval(timer);
   }, []);
@@ -253,83 +253,118 @@ const ProjectCarousel = () => {
   };
 
   return (
-    <section className="py-16 bg-[#242b38]">
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-12">
+    <section className="py-8 sm:py-12 lg:py-16 bg-[#242b38]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
           <span className="inline-block py-2 px-4 rounded-full text-sm font-medium bg-blue-100 text-blue-700 mb-4">
             Nossos Trabalhos
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
             Galeria de <span className="text-yellow-500">Projetos Realizados</span>
           </h2>
-          <p className="text-lg text-gray-300">
+          <p className="text-base sm:text-lg text-gray-300">
             Conheça alguns dos nossos trabalhos mais recentes e se inspire para seu próximo projeto.
           </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-5xl mx-auto">
           {/* Main carousel container */}
-          <div className="relative h-96 md:h-[500px] overflow-hidden rounded-2xl shadow-2xl">
-            {projectImages.map((image, index) => (
-              <div
-                key={image.id}
-                className={`absolute inset-0 transition-opacity duration-1000 ${
-                  index === currentIndex ? 'opacity-100' : 'opacity-0'
-                }`}
-              >
-                <img
-                  src={image.src}
-                  alt={image.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-end">
-                  <div className="p-6 md:p-8 text-white">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-2">{image.title}</h3>
-                    <p className="text-lg opacity-90">{image.description}</p>
+          <div className="relative overflow-hidden rounded-2xl shadow-2xl bg-white">
+            <AspectRatio ratio={16/9} className="md:aspect-[16/10] lg:aspect-[16/9]">
+              {projectImages.map((image, index) => (
+                <div
+                  key={image.id}
+                  className={`absolute inset-0 transition-opacity duration-1000 ${
+                    index === currentIndex ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.title}
+                    className="w-full h-full object-contain bg-gray-50"
+                    loading={index === 0 ? "eager" : "lazy"}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end">
+                    <div className="p-4 sm:p-6 lg:p-8 text-white w-full">
+                      <h3 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold mb-2 line-clamp-2">
+                        {image.title}
+                      </h3>
+                      <p className="text-sm sm:text-base lg:text-lg opacity-90 line-clamp-2 sm:line-clamp-3">
+                        {image.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </AspectRatio>
           </div>
 
-          {/* Navigation arrows */}
+          {/* Navigation arrows - Desktop */}
           <button
             onClick={goToPrevious}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full flex items-center justify-center text-gray-800 transition-all duration-200 shadow-lg"
+            className="hidden sm:flex absolute left-2 lg:left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 lg:w-12 lg:h-12 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full items-center justify-center text-gray-800 transition-all duration-200 shadow-lg z-10"
+            aria-label="Projeto anterior"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6" />
           </button>
           
           <button
             onClick={goToNext}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full flex items-center justify-center text-gray-800 transition-all duration-200 shadow-lg"
+            className="hidden sm:flex absolute right-2 lg:right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 lg:w-12 lg:h-12 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full items-center justify-center text-gray-800 transition-all duration-200 shadow-lg z-10"
+            aria-label="Próximo projeto"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6" />
           </button>
 
-          {/* Dots indicator */}
-          <div className="flex justify-center mt-6 space-x-2">
-            {projectImages.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                  index === currentIndex 
-                    ? 'bg-yellow-500 w-8' 
-                    : 'bg-gray-400 hover:bg-gray-300'
-                }`}
-              />
-            ))}
+          {/* Navigation arrows - Mobile */}
+          <div className="flex sm:hidden justify-between items-center mt-4 px-4">
+            <button
+              onClick={goToPrevious}
+              className="w-10 h-10 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full flex items-center justify-center text-gray-800 transition-all duration-200 shadow-lg"
+              aria-label="Projeto anterior"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            
+            <div className="text-white text-sm font-medium">
+              {currentIndex + 1} / {projectImages.length}
+            </div>
+            
+            <button
+              onClick={goToNext}
+              className="w-10 h-10 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full flex items-center justify-center text-gray-800 transition-all duration-200 shadow-lg"
+              aria-label="Próximo projeto"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Dots indicator - Hidden on mobile, shown on larger screens */}
+          <div className="hidden sm:flex justify-center mt-6 space-x-2 max-w-full overflow-hidden">
+            <div className="flex space-x-2 max-w-xs lg:max-w-md overflow-x-auto pb-2 scrollbar-hide">
+              {projectImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`flex-shrink-0 w-2 h-2 lg:w-3 lg:h-3 rounded-full transition-all duration-200 ${
+                    index === currentIndex 
+                      ? 'bg-yellow-500 w-6 lg:w-8' 
+                      : 'bg-gray-400 hover:bg-gray-300'
+                  }`}
+                  aria-label={`Ir para projeto ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
         {/* CTA Button */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-8 sm:mt-12">
           <a
             href="/nossos-projetos"
-            className="inline-flex items-center px-8 py-4 bg-yellow-500 text-gray-900 font-semibold rounded-lg hover:bg-yellow-400 transition-colors shadow-lg"
+            className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-yellow-500 text-gray-900 font-semibold rounded-lg hover:bg-yellow-400 transition-colors shadow-lg text-sm sm:text-base"
           >
-            <Eye className="w-5 h-5 mr-2" />
+            <Eye className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
             Ver Todos os Projetos
           </a>
         </div>
