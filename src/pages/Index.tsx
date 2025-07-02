@@ -26,7 +26,7 @@ const Index = () => {
         <link rel="canonical" href="https://dicerto.com.br" />
       </Helmet>
       
-      <div className="min-h-screen bg-white w-full overflow-x-hidden">
+      <div className="min-h-screen bg-background text-foreground w-full overflow-x-hidden">
         <Header />
         <main className="w-full">
           <section id="inicio" className="w-full">
