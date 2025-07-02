@@ -85,10 +85,7 @@ const HeroSection = () => {
             </div>
             
             {/* Floating elements */}
-            <div className="absolute -top-4 -right-4 bg-gray-800 border border-gray-600 rounded-lg shadow-lg p-4">
-              <p className="text-sm font-semibold text-white">Orçamento</p>
-              <p className="text-xs text-green-400">100% Gratuito</p>
-            </div>
+            
             
             
           </div>
