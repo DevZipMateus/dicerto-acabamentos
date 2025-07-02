@@ -29,8 +29,8 @@ const projectImages = [
   {
     id: 4,
     src: '/lovable-uploads/0fb4d106-24a3-4ab3-9e1f-8ba5b56a88c9.png',
-    title: 'Piso Laminado Residencial',
-    description: 'Instalação de piso laminado em ambiente residencial'
+    title: 'Piso vinilico Residencial',
+    description: 'Instalação de piso vinilico em ambiente residencial'
   },
   {
     id: 5,
@@ -89,8 +89,8 @@ const projectImages = [
   {
     id: 14,
     src: '/lovable-uploads/80412679-9ceb-47e0-bfd0-d60faa5eaedb.png',
-    title: 'Piso Laminado - Corredor',
-    description: 'Piso laminado com acabamento impecável em corredor residencial'
+    title: 'Piso vinilico - Corredor',
+    description: 'Piso vinilico com acabamento impecável em corredor residencial'
   },
   {
     id: 15,
@@ -101,8 +101,8 @@ const projectImages = [
   {
     id: 16,
     src: '/lovable-uploads/d6367df3-eba7-4ecb-93da-64a016405953.png',
-    title: 'Piso Laminado - Hall Residencial',
-    description: 'Instalação profissional de piso laminado em hall de apartamento'
+    title: 'Piso vinilico - Hall Residencial',
+    description: 'Instalação profissional de piso vinilico em hall de apartamento'
   },
   {
     id: 17,
@@ -119,8 +119,8 @@ const projectImages = [
   {
     id: 19,
     src: '/lovable-uploads/91667576-3f0f-4ca0-bece-a84607233e6f.png',
-    title: 'Piso Laminado - Corredor Moderno',
-    description: 'Piso laminado premium com acabamento profissional em corredor'
+    title: 'Piso vinilico - Corredor Moderno',
+    description: 'Piso vinilico premium com acabamento profissional em corredor'
   },
   {
     id: 20,
@@ -143,8 +143,8 @@ const projectImages = [
   {
     id: 23,
     src: '/lovable-uploads/477b1f4d-d095-4023-9b79-ab47d382cdf8.png',
-    title: 'Piso Laminado - Corredor Residencial',
-    description: 'Instalação de piso laminado em corredor de casa com acabamento profissional'
+    title: 'Piso vinilico - Corredor Residencial',
+    description: 'Instalação de piso vinilico em corredor de casa com acabamento profissional'
   },
   {
     id: 24,
@@ -167,14 +167,14 @@ const projectImages = [
   {
     id: 27,
     src: '/lovable-uploads/b0f3098a-9a64-46a9-a3c6-c79ba8d880ec.png',
-    title: 'Piso Laminado - Escada e Hall',
-    description: 'Piso laminado aplicado em escada e hall de entrada com perfeita integração'
+    title: 'Piso vinilico - Escada e Hall',
+    description: 'Piso vinilico aplicado em escada e hall de entrada com perfeita integração'
   },
   {
     id: 28,
     src: '/lovable-uploads/d0d53140-fa7a-4cd1-b3eb-4bd43694e970.png',
-    title: 'Piso Laminado - Corredor Claro',
-    description: 'Piso laminado em tons claros para corredor residencial com acabamento premium'
+    title: 'Piso vinilico - Corredor Claro',
+    description: 'Piso vinilico em tons claros para corredor residencial com acabamento premium'
   },
   {
     id: 29,
@@ -191,8 +191,8 @@ const projectImages = [
   {
     id: 31,
     src: '/lovable-uploads/cc01e21d-b9bc-4186-a976-8218e2538e4a.png',
-    title: 'Piso Laminado - Quarto Premium',
-    description: 'Piso laminado em quarto com acabamento de alta qualidade e móveis em madeira'
+    title: 'Piso vinilico - Quarto Premium',
+    description: 'Piso vinilico em quarto com acabamento de alta qualidade e móveis em madeira'
   },
   {
     id: 32,
