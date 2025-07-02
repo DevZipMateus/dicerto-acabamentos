@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingButton from '@/components/FloatingButton';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Eye, ArrowLeft } from 'lucide-react';
 
 const projectImages = [
@@ -306,35 +307,38 @@ const NossosProjetos = () => {
 
           {/* Projects Gallery */}
           <section className="py-16 bg-[#242b38]">
-            <div className="container mx-auto px-4">
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
                 {projectImages.map((project) => (
                   <div
                     key={project.id}
                     className="group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200"
                   >
-                    <div className="relative h-64 overflow-hidden">
-                      <img
-                        src={project.src}
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer"
-                        onClick={() => handleImageClick(project)}
-                      />
-                      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
-                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <button 
-                            className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-blue-600 hover:bg-blue-50 transition-colors"
-                            onClick={() => handleImageClick(project)}
-                          >
-                            <Eye className="w-5 h-5" />
-                          </button>
+                    <AspectRatio ratio={4/3} className="bg-gray-100">
+                      <div className="relative w-full h-full overflow-hidden">
+                        <img
+                          src={project.src}
+                          alt={project.title}
+                          className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105 cursor-pointer bg-gray-50"
+                          onClick={() => handleImageClick(project)}
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+                          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <button 
+                              className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-blue-600 hover:bg-blue-50 transition-colors"
+                              onClick={() => handleImageClick(project)}
+                            >
+                              <Eye className="w-5 h-5" />
+                            </button>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </AspectRatio>
                     
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
-                      <p className="text-gray-600">{project.description}</p>
+                    <div className="p-4 sm:p-6">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 line-clamp-2">{project.title}</h3>
+                      <p className="text-sm sm:text-base text-gray-600 line-clamp-3">{project.description}</p>
                     </div>
                   </div>
                 ))}
@@ -386,7 +390,7 @@ const NossosProjetos = () => {
       {/* Image Modal */}
       {selectedImage && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
-          <div className="relative w-full h-full max-w-4xl max-h-full flex items-center justify-center">
+          <div className="relative w-full h-full max-w-6xl max-h-full flex items-center justify-center">
             <button
               onClick={handleCloseModal}
               className="absolute top-4 right-4 z-10 w-10 h-10 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full flex items-center justify-center text-white transition-all duration-200"
