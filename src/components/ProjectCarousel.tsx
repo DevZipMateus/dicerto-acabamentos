@@ -1,5 +1,6 @@
+
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Eye } from 'lucide-react';
+import { Eye } from 'lucide-react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const projectImages = [
@@ -235,22 +236,10 @@ const ProjectCarousel = () => {
       setCurrentIndex((prevIndex) => 
         prevIndex === projectImages.length - 1 ? 0 : prevIndex + 1
       );
-    }, 4000); // Slightly slower for better UX
+    }, 4000);
 
     return () => clearInterval(timer);
   }, []);
-
-  const goToPrevious = () => {
-    setCurrentIndex(currentIndex === 0 ? projectImages.length - 1 : currentIndex - 1);
-  };
-
-  const goToNext = () => {
-    setCurrentIndex(currentIndex === projectImages.length - 1 ? 0 : currentIndex + 1);
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-  };
 
   return (
     <section className="py-8 sm:py-12 lg:py-16 bg-[#242b38]">
@@ -297,64 +286,6 @@ const ProjectCarousel = () => {
                 </div>
               ))}
             </AspectRatio>
-          </div>
-
-          {/* Navigation arrows - Desktop */}
-          <button
-            onClick={goToPrevious}
-            className="hidden sm:flex absolute left-2 lg:left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 lg:w-12 lg:h-12 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full items-center justify-center text-gray-800 transition-all duration-200 shadow-lg z-10"
-            aria-label="Projeto anterior"
-          >
-            <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6" />
-          </button>
-          
-          <button
-            onClick={goToNext}
-            className="hidden sm:flex absolute right-2 lg:right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 lg:w-12 lg:h-12 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full items-center justify-center text-gray-800 transition-all duration-200 shadow-lg z-10"
-            aria-label="Próximo projeto"
-          >
-            <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6" />
-          </button>
-
-          {/* Navigation arrows - Mobile */}
-          <div className="flex sm:hidden justify-between items-center mt-4 px-4">
-            <button
-              onClick={goToPrevious}
-              className="w-10 h-10 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full flex items-center justify-center text-gray-800 transition-all duration-200 shadow-lg"
-              aria-label="Projeto anterior"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            
-            <div className="text-white text-sm font-medium">
-              {currentIndex + 1} / {projectImages.length}
-            </div>
-            
-            <button
-              onClick={goToNext}
-              className="w-10 h-10 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full flex items-center justify-center text-gray-800 transition-all duration-200 shadow-lg"
-              aria-label="Próximo projeto"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-
-          {/* Dots indicator - Hidden on mobile, shown on larger screens */}
-          <div className="hidden sm:flex justify-center mt-6 space-x-2 max-w-full overflow-hidden">
-            <div className="flex space-x-2 max-w-xs lg:max-w-md overflow-x-auto pb-2 scrollbar-hide">
-              {projectImages.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`flex-shrink-0 w-2 h-2 lg:w-3 lg:h-3 rounded-full transition-all duration-200 ${
-                    index === currentIndex 
-                      ? 'bg-yellow-500 w-6 lg:w-8' 
-                      : 'bg-gray-400 hover:bg-gray-300'
-                  }`}
-                  aria-label={`Ir para projeto ${index + 1}`}
-                />
-              ))}
-            </div>
           </div>
         </div>
 
