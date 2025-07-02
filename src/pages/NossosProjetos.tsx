@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import Header from '@/components/Header';
@@ -240,6 +239,18 @@ const projectImages = [
     src: '/lovable-uploads/4d9a58de-0530-4cfa-a848-0ba38bcc4809.png',
     title: 'Piso Laminado - Cozinha Integrada Premium',
     description: 'Piso laminado em cozinha moderna com móveis planejados de alta qualidade'
+  },
+  {
+    id: 40,
+    src: '/lovable-uploads/7333391a-e692-4160-8e86-fe61aa2437b1.png',
+    title: 'Piso Laminado - Cozinha Moderna',
+    description: 'Piso laminado em cozinha com móveis planejados e acabamento impecável'
+  },
+  {
+    id: 41,
+    src: '/lovable-uploads/9165aa2e-9f95-466a-8295-2c32df10c174.png',
+    title: 'Piso Laminado - Loja Comercial',
+    description: 'Instalação de piso laminado em ambiente comercial com acabamento profissional'
   }
 ];
 
