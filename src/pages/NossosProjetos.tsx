@@ -60,6 +60,66 @@ const projectImages = [
     src: '/lovable-uploads/eb273332-ca10-43bc-bac7-47f5451bd023.png',
     title: 'Gesso - Acabamento de Teto',
     description: 'Trabalho em gesso com molduras e iluminação embutida'
+  },
+  {
+    id: 10,
+    src: '/lovable-uploads/16f6660e-474d-47b4-8d6e-848e27472af4.png',
+    title: 'Piso Laminado - Hall de Entrada',
+    description: 'Piso laminado instalado em hall de entrada com acabamento perfeito'
+  },
+  {
+    id: 11,
+    src: '/lovable-uploads/9ffbd456-7b53-474e-8038-a643db81b6a5.png',
+    title: 'Piso Laminado - Ambiente Integrado',
+    description: 'Piso laminado em sala com divisória de madeira e acabamento premium'
+  },
+  {
+    id: 12,
+    src: '/lovable-uploads/a16395a8-8623-43c9-86b6-918e41ba05df.png',
+    title: 'Piso Laminado - Cozinha Integrada',
+    description: 'Piso laminado em cozinha americana com sala integrada'
+  },
+  {
+    id: 13,
+    src: '/lovable-uploads/5288e791-d2c0-42f5-98d9-b9198b4c7be5.png',
+    title: 'Piso Laminado - Área Social',
+    description: 'Instalação de piso laminado em área social com teto em madeira'
+  },
+  {
+    id: 14,
+    src: '/lovable-uploads/80412679-9ceb-47e0-bfd0-d60faa5eaedb.png',
+    title: 'Piso Laminado - Corredor',
+    description: 'Piso laminado com acabamento impecável em corredor residencial'
+  },
+  {
+    id: 15,
+    src: '/lovable-uploads/a2e76476-8ee6-406a-acd3-316e299c8d6f.png',
+    title: 'Piso Laminado - Quarto Infantil',
+    description: 'Piso laminado em quarto infantil com móveis planejados'
+  },
+  {
+    id: 16,
+    src: '/lovable-uploads/d6367df3-eba7-4ecb-93da-64a016405953.png',
+    title: 'Piso Laminado - Hall Residencial',
+    description: 'Instalação profissional de piso laminado em hall de apartamento'
+  },
+  {
+    id: 17,
+    src: '/lovable-uploads/2818e784-64c0-45ba-b57d-1cd997f94ce9.png',
+    title: 'Piso Laminado - Área de Serviço',
+    description: 'Piso laminado em área de serviço integrada com acabamento perfeito'
+  },
+  {
+    id: 18,
+    src: '/lovable-uploads/3428f6e4-2da2-4c35-b079-411ec4b91472.png',
+    title: 'Acabamento em Gesso - Teto',
+    description: 'Trabalho especializado em gesso com iluminação LED embutida'
+  },
+  {
+    id: 19,
+    src: '/lovable-uploads/91667576-3f0f-4ca0-bece-a84607233e6f.png',
+    title: 'Piso Laminado - Corredor Moderno',
+    description: 'Piso laminado premium com acabamento profissional em corredor'
   }
 ];
 
