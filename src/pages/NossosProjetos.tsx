@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -258,6 +258,10 @@ const projectImages = [
 
 const NossosProjetos = () => {
   const [selectedImage, setSelectedImage] = useState<{id: number, src: string, title: string} | null>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleImageClick = (image: any) => {
     setSelectedImage(image);

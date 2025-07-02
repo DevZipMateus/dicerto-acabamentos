@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 
 const Header = () => {
@@ -8,6 +8,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('inicio');
   const location = useLocation();
+  const navigate = useNavigate();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -66,10 +67,19 @@ const Header = () => {
 
   const handleNavClick = (item: any) => {
     if (item.route) {
-      window.location.href = item.route;
+      navigate(item.route);
     } else {
-      scrollToSection(item.id);
+      if (location.pathname !== '/') {
+        navigate('/');
+        setTimeout(() => scrollToSection(item.id), 100);
+      } else {
+        scrollToSection(item.id);
+      }
     }
+  };
+
+  const handleLogoClick = () => {
+    navigate('/');
   };
 
   return (
@@ -78,7 +88,7 @@ const Header = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div 
-            onClick={() => scrollToSection('inicio')}
+            onClick={handleLogoClick}
             className="flex items-center space-x-3 cursor-pointer"
           >
             <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg overflow-hidden">
