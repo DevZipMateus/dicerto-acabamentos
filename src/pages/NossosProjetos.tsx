@@ -11,7 +11,7 @@ const projectImages = [
   {
     id: 1,
     src: '/lovable-uploads/c280e790-d980-4387-a159-aac69b9b88ec.png',
-    title: 'Piso Laminado - Projeto Comercial',
+    title: 'Forro de PVC com armação em drywall - Projeto Comercial',
     description: 'Instalação de piso laminado em ambiente comercial com acabamento perfeito'
   },
   {
