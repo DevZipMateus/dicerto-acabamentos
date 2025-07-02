@@ -27,16 +27,16 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-20 bg-gray-50" id="depoimentos">
+    <section className="py-20 bg-[#242b38]" id="depoimentos">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-2 bg-yellow-500 text-gray-900 rounded-full text-sm font-semibold mb-6">
             Depoimentos
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            O que nossos <span className="text-yellow-600">Clientes</span> dizem
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            O que nossos <span className="text-yellow-500">Clientes</span> dizem
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             A satisfação dos nossos clientes é nossa maior recompensa. Veja o que eles têm a dizer 
             sobre nossos serviços.
           </p>
@@ -44,23 +44,23 @@ const TestimonialsSection = () => {
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+            <div key={index} className="bg-gray-800 border border-gray-600 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
               <div className="flex items-center mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
                 ))}
               </div>
               
-              <Quote className="w-8 h-8 text-gray-300 mb-4" />
+              <Quote className="w-8 h-8 text-gray-400 mb-4" />
               
-              <p className="text-gray-600 mb-6 leading-relaxed italic">
+              <p className="text-gray-300 mb-6 leading-relaxed italic">
                 "{testimonial.text}"
               </p>
               
-              <div className="border-t pt-4">
-                <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                <p className="text-sm text-gray-500">{testimonial.location}</p>
-                <span className="inline-block mt-2 px-3 py-1 bg-yellow-100 text-yellow-700 text-xs rounded-full">
+              <div className="border-t border-gray-600 pt-4">
+                <h4 className="font-bold text-white">{testimonial.name}</h4>
+                <p className="text-sm text-gray-400">{testimonial.location}</p>
+                <span className="inline-block mt-2 px-3 py-1 bg-yellow-500 text-gray-900 text-xs rounded-full">
                   {testimonial.service}
                 </span>
               </div>

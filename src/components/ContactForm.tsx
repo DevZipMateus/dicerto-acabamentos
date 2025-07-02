@@ -54,16 +54,16 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="py-20 bg-white" id="contato">
+    <section className="py-20 bg-[#242b38]" id="contato">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-2 bg-yellow-500 text-gray-900 rounded-full text-sm font-semibold mb-6">
             Entre em Contato
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Solicite seu <span className="text-yellow-600">Orçamento Gratuito</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Solicite seu <span className="text-yellow-500">Orçamento Gratuito</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Pronto para transformar seu ambiente? Entre em contato conosco e receba um orçamento 
             personalizado sem compromisso.
           </p>
@@ -72,7 +72,7 @@ const ContactForm = () => {
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Information */}
           <div>
-            <h3 className="text-3xl font-bold text-gray-900 mb-8">
+            <h3 className="text-3xl font-bold text-white mb-8">
               Fale Conosco
             </h3>
             
@@ -82,8 +82,8 @@ const ContactForm = () => {
                   <MapPin className="w-6 h-6 text-gray-900" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 mb-1">Endereço</h4>
-                  <p className="text-gray-600">Rua Videira, 65<br />Centro, Treze Tílias - SC</p>
+                  <h4 className="font-bold text-white mb-1">Endereço</h4>
+                  <p className="text-gray-300">Rua Videira, 65<br />Centro, Treze Tílias - SC</p>
                 </div>
               </div>
               
@@ -92,8 +92,8 @@ const ContactForm = () => {
                   <Phone className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 mb-1">Telefone</h4>
-                  <a href="tel:+5549999163785" className="text-gray-600 hover:text-green-600 transition-colors">
+                  <h4 className="font-bold text-white mb-1">Telefone</h4>
+                  <a href="tel:+5549999163785" className="text-gray-300 hover:text-green-400 transition-colors">
                     (49) 99916-3785
                   </a>
                 </div>
@@ -104,8 +104,8 @@ const ContactForm = () => {
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 mb-1">Email</h4>
-                  <a href="mailto:dicerto@outlook.com" className="text-gray-600 hover:text-blue-600 transition-colors">
+                  <h4 className="font-bold text-white mb-1">Email</h4>
+                  <a href="mailto:dicerto@outlook.com" className="text-gray-300 hover:text-blue-400 transition-colors">
                     dicerto@outlook.com
                   </a>
                 </div>
@@ -116,8 +116,8 @@ const ContactForm = () => {
                   <Clock className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 mb-1">Horário de Atendimento</h4>
-                  <p className="text-gray-600">Segunda a Sexta: 8h às 18h<br />Sábado: 8h às 12h</p>
+                  <h4 className="font-bold text-white mb-1">Horário de Atendimento</h4>
+                  <p className="text-gray-300">Segunda a Sexta: 8h às 18h<br />Sábado: 8h às 12h</p>
                 </div>
               </div>
             </div>
@@ -141,14 +141,14 @@ const ContactForm = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-gray-50 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+          <div className="bg-gray-800 border border-gray-600 rounded-2xl p-8">
+            <h3 className="text-2xl font-bold text-white mb-6">
               Solicitar Orçamento
             </h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                   Nome Completo *
                 </label>
                 <Input
@@ -158,13 +158,13 @@ const ContactForm = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full"
+                  className="w-full bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-yellow-500"
                   placeholder="Seu nome completo"
                 />
               </div>
               
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
                   Telefone/WhatsApp *
                 </label>
                 <Input
@@ -174,13 +174,13 @@ const ContactForm = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  className="w-full"
+                  className="w-full bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-yellow-500"
                   placeholder="(49) 99999-9999"
                 />
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                   Email
                 </label>
                 <Input
@@ -189,13 +189,13 @@ const ContactForm = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full"
+                  className="w-full bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-yellow-500"
                   placeholder="seu@email.com"
                 />
               </div>
               
               <div>
-                <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-2">
                   Serviço de Interesse *
                 </label>
                 <select
@@ -204,7 +204,7 @@ const ContactForm = () => {
                   value={formData.service}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                  className="w-full px-3 py-2 bg-gray-700 border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
                 >
                   <option value="">Selecione um serviço</option>
                   <option value="Piso Laminado">Piso Laminado</option>
@@ -215,7 +215,7 @@ const ContactForm = () => {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                   Mensagem
                 </label>
                 <Textarea
@@ -224,7 +224,7 @@ const ContactForm = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full"
+                  className="w-full bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-yellow-500"
                   placeholder="Descreva seu projeto ou dúvidas..."
                 />
               </div>
@@ -238,12 +238,12 @@ const ContactForm = () => {
               </Button>
             </form>
             
-            <div className="mt-6 p-4 bg-yellow-100 rounded-lg">
+            <div className="mt-6 p-4 bg-yellow-500 bg-opacity-20 border border-yellow-500 rounded-lg">
               <div className="flex items-center mb-2">
-                <Star className="w-5 h-5 text-yellow-600 mr-2" />
-                <span className="font-semibold text-gray-900">Garantia de Qualidade</span>
+                <Star className="w-5 h-5 text-yellow-500 mr-2" />
+                <span className="font-semibold text-white">Garantia de Qualidade</span>
               </div>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-300">
                 Orçamento gratuito • Visita sem compromisso • Preços justos • Trabalho garantido
               </p>
             </div>

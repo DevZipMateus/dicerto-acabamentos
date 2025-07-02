@@ -27,16 +27,16 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section className="py-20 bg-white" id="servicos">
+    <section className="py-20 bg-[#242b38]" id="servicos">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-2 bg-yellow-500 text-gray-900 rounded-full text-sm font-semibold mb-6">
             Nossos Serviços
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Soluções Completas em <span className="text-yellow-600">Acabamentos</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Soluções Completas em <span className="text-yellow-500">Acabamentos</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Oferecemos serviços especializados em pisos e drywall com preços que cabem no seu orçamento. 
             Qualidade garantida e experiência comprovada.
           </p>
@@ -44,17 +44,17 @@ const ServicesSection = () => {
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => (
-            <div key={index} className="bg-gray-50 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
+            <div key={index} className="bg-gray-800 border border-gray-600 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
               <div className={`${service.color} w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                 <service.icon className="w-8 h-8 text-white" />
               </div>
               
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+              <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
+              <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
               
               <ul className="space-y-2 mb-6">
                 {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center text-gray-600">
+                  <li key={idx} className="flex items-center text-gray-300">
                     <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
                     {feature}
                   </li>
@@ -65,7 +65,7 @@ const ServicesSection = () => {
         </div>
 
         {/* Special offer section */}
-        <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-8 md:p-12 text-center text-white">
+        <div className="bg-gradient-to-r from-gray-900 to-gray-800 border border-gray-600 rounded-2xl p-8 md:p-12 text-center text-white">
           <h3 className="text-3xl md:text-4xl font-bold mb-6">
             Orçamento e Visita <span className="text-yellow-500">100% Gratuitos</span>
           </h3>
