@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, MessageCircle } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,6 +48,7 @@ const Header = () => {
     { id: 'inicio', label: 'Início' },
     { id: 'sobre', label: 'Sobre' },
     { id: 'servicos', label: 'Serviços' },
+    { id: 'nossos-projetos', label: 'Nossos Projetos', route: '/nossos-projetos' },
     { id: 'depoimentos', label: 'Depoimentos' },
     { id: 'contato', label: 'Contato' }
   ];
@@ -61,6 +62,14 @@ const Header = () => {
     }
     
     return `${baseClasses} ${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-yellow-500`;
+  };
+
+  const handleNavClick = (item: any) => {
+    if (item.route) {
+      window.location.href = item.route;
+    } else {
+      scrollToSection(item.id);
+    }
   };
 
   return (
@@ -95,7 +104,7 @@ const Header = () => {
               {navItems.map((item) => (
                 <li key={item.id}>
                   <span
-                    onClick={() => scrollToSection(item.id)}
+                    onClick={() => handleNavClick(item)}
                     className={getLinkClasses(item.id)}
                   >
                     {item.label}
@@ -123,7 +132,11 @@ const Header = () => {
                 rel="noopener noreferrer"
                 className="flex items-center space-x-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
               >
-                <MessageCircle className="w-4 h-4" />
+                <img 
+                  src="/lovable-uploads/69ec1fdc-b8aa-4dc6-9dff-d0670370a5cc.png" 
+                  alt="WhatsApp" 
+                  className="w-4 h-4"
+                />
                 <span className="text-sm font-medium">WhatsApp</span>
               </a>
             </div>
@@ -150,7 +163,7 @@ const Header = () => {
               {navItems.map((item) => (
                 <li key={item.id}>
                   <span
-                    onClick={() => scrollToSection(item.id)}
+                    onClick={() => handleNavClick(item)}
                     className="text-lg font-medium text-gray-700 hover:text-yellow-600 transition-colors cursor-pointer block py-2"
                   >
                     {item.label}
@@ -175,7 +188,11 @@ const Header = () => {
               rel="noopener noreferrer"
               className="flex items-center space-x-3 bg-green-500 text-white px-4 py-3 rounded-lg hover:bg-green-600 transition-colors"
             >
-              <MessageCircle className="w-5 h-5" />
+              <img 
+                src="/lovable-uploads/69ec1fdc-b8aa-4dc6-9dff-d0670370a5cc.png" 
+                alt="WhatsApp" 
+                className="w-5 h-5"
+              />
               <span>Chamar no WhatsApp</span>
             </a>
           </div>

@@ -1,6 +1,6 @@
 
 import { Button } from '@/components/ui/button';
-import { Phone, MessageCircle, Award, Clock, CheckCircle } from 'lucide-react';
+import { Phone, Award, Clock, CheckCircle } from 'lucide-react';
 
 const HeroSection = () => {
   const scrollToContact = () => {
@@ -47,7 +47,11 @@ const HeroSection = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <a href="https://wa.me/5549999163785?text=Olá,%20gostaria%20de%20um%20orçamento%20gratuito" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-4 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-colors shadow-lg">
-                <MessageCircle className="w-5 h-5 mr-2" />
+                <img 
+                  src="/lovable-uploads/69ec1fdc-b8aa-4dc6-9dff-d0670370a5cc.png" 
+                  alt="WhatsApp" 
+                  className="w-5 h-5 mr-2"
+                />
                 Orçamento Grátis via WhatsApp
               </a>
               <Button onClick={scrollToContact} variant="outline" size="lg" className="border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-gray-900 px-8 py-4 bg-transparent">
