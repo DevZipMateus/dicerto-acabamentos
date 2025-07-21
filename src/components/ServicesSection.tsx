@@ -7,14 +7,16 @@ const services = [
     description: "Instalação profissional de pisos laminados de alta qualidade. Diversos padrões e cores disponíveis com acabamento perfeito.",
     icon: Layers,
     features: ["Instalação profissional", "Diversos padrões", "Garantia de qualidade", "Preço justo"],
-    color: "bg-blue-500"
+    color: "bg-blue-500",
+    price: "A partir de R$ 59,90 instalado"
   },
   {
     title: "Pisos Vinílicos",
     description: "Pisos vinílicos modernos e resistentes, ideais para ambientes residenciais e comerciais. Fácil manutenção e durabilidade.",
     icon: Home,
     features: ["Resistente à água", "Fácil manutenção", "Conforto térmico", "Várias opções"],
-    color: "bg-green-500"
+    color: "bg-green-500",
+    price: "A partir de R$ 98,90 instalado"
   },
   {
     title: "Drywall (Gesso)",
@@ -50,6 +52,15 @@ const ServicesSection = () => {
               </div>
               
               <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
+              
+              {service.price && (
+                <div className="mb-4">
+                  <span className="inline-block px-3 py-1 bg-yellow-500 text-gray-900 rounded-full text-sm font-semibold">
+                    {service.price}
+                  </span>
+                </div>
+              )}
+              
               <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
               
               <ul className="space-y-2 mb-6">
